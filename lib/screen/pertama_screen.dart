@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp2/domain/model/kuliner_model.dart';
 import 'package:ucp2/presentation/controller/kuliner_controller.dart';
+import 'package:ucp2/screen/form_screen.dart';
 
 class PertamaScreen extends StatefulWidget {
   const PertamaScreen({super.key});
@@ -48,15 +49,15 @@ class _PertamaScreenState extends State<PertamaScreen> {
           }
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => const FormKontak()),
-      //     );
-      //   },
-      //   child: const Icon(Icons.add),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FormScreen()),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

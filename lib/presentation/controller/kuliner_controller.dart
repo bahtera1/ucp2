@@ -5,12 +5,12 @@ import 'package:ucp2/data/service/kuliner_service.dart';
 import 'package:ucp2/domain/model/kuliner_model.dart';
 
 class KulinerController {
-  final KulinerService kulinerService = KulinerService();
+  final kulinerService = KulinerService();
 
   Future<Map<String, dynamic>> addKuliner(Kuliner nguliner, File? file) async {
     Map<String, String> data = {
       'nama': nguliner.namakuliner,
-      'email': nguliner.notelepon,
+      'notelepon': nguliner.notelepon,
       'alamat': nguliner.alamat,
     };
 
@@ -55,7 +55,8 @@ class KulinerController {
       return people;
     } catch (e) {
       print(e);
+
+      throw Exception('Failed to get people');
     }
-    throw Exception('Failed to get people');
   }
 }
