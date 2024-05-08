@@ -22,6 +22,7 @@ class _FormScreenState extends State<FormScreen> {
   final _formKey = GlobalKey<FormState>();
   final _namakulinerController = TextEditingController();
   final _noteleponController = TextEditingController();
+  final _alamatController = TextEditingController();
 
   final KulinerController _personController = KulinerController();
 
@@ -34,7 +35,7 @@ class _FormScreenState extends State<FormScreen> {
         if (pickerFile != null) {
           _image = File(pickerFile.path);
         } else {
-          print("No image selected");
+          print("Tidak Ada Gambar yang dipilih");
         }
       },
     );
@@ -44,9 +45,9 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Data Kuliner"),
+        title: Text("Data Tempat Kuliner"),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 200, 210, 214),
+        backgroundColor: Color.fromARGB(255, 45, 128, 161),
       ),
       body: Form(
         key: _formKey,
@@ -54,24 +55,25 @@ class _FormScreenState extends State<FormScreen> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(12),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "Nama", hintText: "Masukkan Nama"),
+                      labelText: "Nama Tempat Kuliner",
+                      hintText: "Masukkan Nama Tempat Kuliner"),
                   controller: _namakulinerController,
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: EdgeInsets.all(12),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "N0 Hp", hintText: "Masukkan No HP"),
+                      labelText: "No Telepon", hintText: "Masukkan No Telepon"),
                   controller: _noteleponController,
                 ),
               ),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -119,7 +121,7 @@ class _FormScreenState extends State<FormScreen> {
                 ),
               ),
               _image == null
-                  ? const Text("Tidak ada data yang dipilih")
+                  ? const Text("Tidak ada Gambar yang dipilih")
                   : Image.file(_image!),
               ElevatedButton(
                 onPressed: () {
