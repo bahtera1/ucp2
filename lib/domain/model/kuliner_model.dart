@@ -5,25 +5,27 @@ class Kuliner {
   final String namakuliner;
   final String notelepon;
   final String alamat;
+  final String harga;
   final String gambar;
-  Kuliner({
-    required this.namakuliner,
-    required this.notelepon,
-    required this.alamat,
-    required this.gambar,
-  });
+  Kuliner(
+      {required this.namakuliner,
+      required this.notelepon,
+      required this.alamat,
+      required this.gambar,
+      required this.harga});
 
-  Kuliner copyWith({
-    String? namakuliner,
-    String? notelepon,
-    String? alamat,
-    String? gambar,
-  }) {
+  Kuliner copyWith(
+      {String? namakuliner,
+      String? notelepon,
+      String? alamat,
+      String? gambar,
+      String? harga}) {
     return Kuliner(
       namakuliner: namakuliner ?? this.namakuliner,
       notelepon: notelepon ?? this.notelepon,
       alamat: alamat ?? this.alamat,
       gambar: gambar ?? this.gambar,
+      harga: harga ?? this.harga,
     );
   }
 
@@ -34,17 +36,18 @@ class Kuliner {
     result.addAll({'notelepon': notelepon});
     result.addAll({'alamat': alamat});
     result.addAll({'gambar': gambar});
+    result.addAll({'harga': harga});
 
     return result;
   }
 
   factory Kuliner.fromMap(Map<String, dynamic> map) {
     return Kuliner(
-      namakuliner: map['namakuliner'] ?? '',
-      notelepon: map['notelepon'] ?? '',
-      alamat: map['alamat'] ?? '',
-      gambar: map['gambar'] ?? '',
-    );
+        namakuliner: map['namakuliner'] ?? '',
+        notelepon: map['notelepon'] ?? '',
+        alamat: map['alamat'] ?? '',
+        gambar: map['gambar'] ?? '',
+        harga: map['harga'] ?? '');
   }
 
   String toJson() => json.encode(toMap());
@@ -54,7 +57,7 @@ class Kuliner {
 
   @override
   String toString() {
-    return 'Kuliner(namakuliner: $namakuliner, notelepon: $notelepon, alamat: $alamat, gambar: $gambar)';
+    return 'Kuliner(namakuliner: $namakuliner, notelepon: $notelepon, alamat: $alamat, gambar: $gambar, harga:$harga)';
   }
 
   @override
@@ -65,6 +68,7 @@ class Kuliner {
         other.namakuliner == namakuliner &&
         other.notelepon == notelepon &&
         other.alamat == alamat &&
+        other.harga == harga &&
         other.gambar == gambar;
   }
 
@@ -73,6 +77,7 @@ class Kuliner {
     return namakuliner.hashCode ^
         notelepon.hashCode ^
         alamat.hashCode ^
+        harga.hashCode ^
         gambar.hashCode;
   }
 }

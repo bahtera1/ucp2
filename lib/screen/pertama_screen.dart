@@ -23,7 +23,7 @@ class _PertamaScreenState extends State<PertamaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Daftar Kuliner'),
+        title: Text('Tempat Kuliner'),
       ),
       body: FutureBuilder<List<Kuliner>>(
         future: _controller.getKuliner(),

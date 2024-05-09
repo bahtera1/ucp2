@@ -7,11 +7,12 @@ import 'package:ucp2/domain/model/kuliner_model.dart';
 class KulinerController {
   final kulinerService = KulinerService();
 
-  Future<Map<String, dynamic>> addKuliner(Kuliner nguliner, File? file) async {
+  Future<Map<String, dynamic>> addKuliner(Kuliner person, File? file) async {
     Map<String, String> data = {
-      'nama': nguliner.namakuliner,
-      'notelepon': nguliner.notelepon,
-      'alamat': nguliner.alamat,
+      'nama': person.namakuliner,
+      'notelepon': person.notelepon,
+      'alamat': person.alamat,
+      'harga': person.harga
     };
 
     try {

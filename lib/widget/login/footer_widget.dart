@@ -13,7 +13,7 @@ class FooterWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 45, bottom: 35),
+          padding: const EdgeInsets.only(top: 45, bottom: 55),
           child: ElevatedButton(
             onPressed: onPressedLogin,
             child: const Text("MASUK"),

@@ -23,6 +23,7 @@ class _FormScreenState extends State<FormScreen> {
   final _namakulinerController = TextEditingController();
   final _noteleponController = TextEditingController();
   final _alamatController = TextEditingController();
+  final _hargaController = TextEditingController();
 
   final KulinerController _personController = KulinerController();
 
@@ -45,7 +46,7 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Data Tempat Kuliner"),
+        title: Text("Tambah Tempat Kuliner "),
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 45, 128, 161),
       ),
@@ -120,6 +121,15 @@ class _FormScreenState extends State<FormScreen> {
                   ],
                 ),
               ),
+              Container(
+                margin: EdgeInsets.all(12),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      labelText: "Kisaran Harga",
+                      hintText: "Masukkan Kisaran Harga"),
+                  controller: _hargaController,
+                ),
+              ),
               _image == null
                   ? const Text("Tidak ada Gambar yang dipilih")
                   : Image.file(_image!),
@@ -130,18 +140,18 @@ class _FormScreenState extends State<FormScreen> {
                 child: const Text("Pilih Gambar"),
               ),
               Container(
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(12),
                 child: ElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                       //Proses simpan data
                       Kuliner _person = Kuliner(
-                        namakuliner: _namakulinerController.text,
-                        notelepon: _noteleponController.text,
-                        alamat: _alamat ?? '',
-                        gambar: _image!.path,
-                      );
+                          namakuliner: _namakulinerController.text,
+                          notelepon: _noteleponController.text,
+                          alamat: _alamat ?? '',
+                          gambar: _image!.path,
+                          harga: _hargaController.text);
                       var result =
                           await _personController.addKuliner(_person, _image);
                       ScaffoldMessenger.of(context).showSnackBar(

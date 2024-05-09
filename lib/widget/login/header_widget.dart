@@ -11,15 +11,16 @@ class HeaderWidget extends StatelessWidget {
         Text(
           'TEMPAT WISATA KULINER',
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 30,
             color: Color.fromARGB(255, 19, 126, 22),
+            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(
-          height: 40,
+          height: 50,
         ),
         CircleAvatar(
-          radius: 80,
+          radius: 100,
           backgroundImage: AssetImage('assets/images/kuliner.jpg'),
         )
       ],

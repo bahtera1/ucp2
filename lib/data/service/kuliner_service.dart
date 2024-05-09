@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class KulinerService {
-  final String baseUrl = 'https://paml.tatiumy.com/api/';
+  final String baseUrl = 'http://127.0.0.1:8000/';
   final String endpoint = 'people';
 
   Uri getUri(String path) {
@@ -37,7 +37,7 @@ class KulinerService {
       );
       if (response.statusCode == 200) {
         final Map<String, dynamic> decodedResponse = json.decode(response.body);
-        return decodedResponse['kuliner'];
+        return decodedResponse['people'];
       } else {
         throw Exception('Failed to load kuliner: ${response.reasonPhrase}');
       }
@@ -46,6 +46,7 @@ class KulinerService {
       return []; // Return an empty list instead of null
     }
   }
+
   // Future<List<dynamic>> fetchPeople() async {
   //   var response = await http.get(
   //     getUri(endpoint),
@@ -56,7 +57,7 @@ class KulinerService {
   //   if (response.statusCode == 200) {
   //     final Map<String, dynamic> decodedResponse = json.decode(response.body);
   //     return decodedResponse[
-  //         'kuliner']; // Akses array people dari objek response
+  //         'people']; // Akses array people dari objek response
   //   } else {
   //     throw Exception('Failed to load kuliner: ${response.reasonPhrase}');
   //   }
